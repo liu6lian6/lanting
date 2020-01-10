@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+server:
+  port: 8088
+
+logging:
+  level:
+    com.kede: debug
