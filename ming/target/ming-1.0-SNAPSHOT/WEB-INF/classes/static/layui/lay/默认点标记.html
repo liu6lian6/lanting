@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>默认点标记</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+    <style>
+        html, body, #container {
+            height: 100%;
+            width: 100%;
+        }
+
+        .amap-icon img,
+        .amap-marker-content img{
+            width: 25px;
+            height: 34px;
+        }
+
+        .marker {
+            position: absolute;
+            top: -20px;
+            right: -118px;
+            color: #fff;
+            padding: 4px 10px;
+            box-shadow: 1px 1px 1px rgba(10, 10, 10, .2);
+            white-space: nowrap;
+            font-size: 12px;
+            font-family: "";
+            background-color: #25A5F7;
+            border-radius: 3px;
+
+        }
+
+        .input-card{
+            width: 18rem;
+            z-index: 170;
+        }
+
+        .input-card .btn{
+            margin-right: .8rem;
+        }
+
+        .input-card .btn:last-child{
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<div class="input-card">
+    <label style="color:grey">点标记操作</label>
+    <div class="input-item">
+        <input id="addMarkerone" type="button" class="btn" onclick="addMarkerone()" value="添加起点">
+        <input id="addMarkertwo" type="button" class="btn" onclick="addMarkertwo()" value="添加终点">
+<!--        <input id="updateMarker" type="button" class="btn" onclick="updateIcon()" value="更新点标记图标">-->
+    </div>
+    <div class="input-item">
+        <input id="clearMarker" type="button" class="btn" onclick="clearMarker()" value="重新选点">
+        <input id="updateMarker" type="button" class="btn" onclick="plan()" value="规划路线">
+        <input id="updateMarkers" type="button" class="btn" onclick="plan搜索()" value="规划路线">
+    </div>
+</div>
+<script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=1.4.15&key=c4c890793d1fa75efb9da27124b55958"></script>
+<script type="text/javascript">
+    var marker, map  = new AMap.Map("container", {
+        resizeEnable: true,
+        center: [104.036209,30.570822],
+        zoom: 13
+    });
+
+    // 实例化点标记
+    function addMarkerone() {
+            marker = new AMap.Marker({
+                icon: "//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png",
+                position: [104.036209,30.570555],
+                offset: new AMap.Pixel(-13, -30)
+            });
+
+            marker.setMap(map);
+        var msg_label = '<span>测试使用的Label的</span>';
+        marker.setLabel({
+            offset: new AMap.Pixel(20, -10), //显示位置
+            content: msg_label //显示内容
+        });
+
+    }
+
+
+
+    function addMarkertwo() {
+        marker = new AMap.Marker({
+            icon: "//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png",
+            position: [104.036209,30.573333],
+
+            // offset: new AMap.Pixel(-13, -30)
+        });
+        marker.setMap(map);
+        isFirst = true
+    }
+
+
+
+
+
+
+    function clearMarker(){
+        location.reload()
+
+
+    }
+    function plan(){
+
+    }
+
+
+
+</script>
+</body>
+</html>
